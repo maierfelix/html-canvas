@@ -10,9 +10,7 @@ Due to security reasons it's not possible to render images without much hax, so 
 Files:
  - index.html contains an example ``<htmlgl>`` code section
  - main.js demonstrates the renderer api
- - container.js contains the actual html renderer
- - rasterize.js embeds html into an image encoded svg
+ - renderer.js contains the actual html renderer and rasterizer
 
 Libraries:
  - watcher.min.js track element changes
- - stats.js fps measuring etc.
