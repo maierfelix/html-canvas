@@ -1,23 +1,10 @@
-function cloneCanvas(old) {
-  let canvas = document.createElement("canvas");
-  canvas.width = old.width;
-  canvas.height = old.height;
-  canvas.getContext("2d").drawImage(
-    old,
-    0, 0,
-    old.width, old.height,
-    0, 0,
-    old.width, old.height
-  );
-  return (canvas);
-};
-
 class Stage {
+
   constructor(obj) {
     obj = obj || {};
     this.ctx = null;
-    this._alpha = 1;
-    this._scale = 1;
+    this._alpha = obj.alpha !== void 0 ? obj.alpha : 1;
+    this._scale = obj.scale !== void 0 ? obj.scale : 1;
     this.content = null;
     this.watch = null;
     this.view = null;
@@ -25,6 +12,9 @@ class Stage {
     this.redrawing = false;
     this.width = obj.width || window.innerWidth;
     this.height = obj.height || window.innerHeight;
+    if (!obj.element) throw new Error("Invalid element!");
+    // make sure the hidden source stays invisible
+    obj.element.style.opacity = 0;
     this.setupView();
     this.redrawElement();
     this.watchElement();
@@ -57,9 +47,7 @@ class Stage {
         </foreignObject>
       </svg>
     `;
-
     data = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(data);
-
     let img = new Image();
     img.addEventListener("load", () => {
       resolve(img);
