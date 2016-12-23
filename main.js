@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let el = document.getElementById("htmlgl");
 
   let stage = new Stage({
+    alpha: 0.25, // base alpha
     element: el // element to render
   });
 
@@ -12,13 +13,13 @@ document.addEventListener("DOMContentLoaded", () => {
   function draw() {
     requestAnimationFrame(draw);
     let ctx = stage.getContext();
-    stage.alpha = 0.5;
+    stage.alpha += 0.01;
     stage.render();
   };
 
   window.addEventListener("resize", function() {
-    var width = window.innerWidth;
-    var height = window.innerHeight;
+    let width = window.innerWidth;
+    let height = window.innerHeight;
     stage.resize(width, height);
   });
 
