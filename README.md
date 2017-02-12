@@ -1,16 +1,11 @@
 # Render HTML elements into canvas
 
 A small experiment about rendering html elements into a canvas node.
-You have full control about redrawing, alpha channel, fps and can even apply canvas filters and element events (e.g onClick).
+You have full control about drawing, alpha channel, fps and can even apply filters and element events (e.g onClick).
 
-Use developer tools to change the content of the ``<htmlgl>`` in realtime. This is made possible by the new element observers, which allow you to easily track changes on elements.
-
-Due to security reasons it's not possible to render images without much hax, so this part is just left out.
+Use developer tools to change the content of the ``<htmlgl>`` in realtime. This is made possible by the new mutation observer api, which allows to easily track changes on dom nodes.
 
 Files:
- - index.html contains an example ``<htmlgl>`` code section
- - main.js demonstrates the renderer api
+ - index.html contains an ``<htmlgl>`` code section
+ - main.js showcase of the renderer api
  - renderer.js contains the actual html renderer and rasterizer
-
-Libraries:
- - watcher.min.js track element changes
