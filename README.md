@@ -1,7 +1,5 @@
 # Render HTML elements into canvas
 
-[Demo](http://maierfelix.github.io/html-canvas)
-
 A small experiment about rendering html elements into a canvas node.
 You have full control about redrawing, alpha channel, fps and can even apply canvas filters and element events (e.g onClick).
 
